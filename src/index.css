@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    border-color: #454545;
+  }
+  
+  body {
+    background-color: #212121;
+    color: #ececec;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  /* Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .text-display {
+    font-size: 48px;
+    line-height: 40px;
+    font-weight: 510;
+  }
+
+  .text-h1 {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 510;
+  }
+
+  .text-h2 {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 400;
+  }
+
+  .text-body {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+
+  .text-small {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+
+  .chinese-display {
+    font-size: 64px;
+    line-height: 1.2;
+    font-weight: 510;
+  }
+
+  @media (min-width: 768px) {
+    .chinese-display {
+      font-size: 96px;
+    }
+  }
+
+  .pinyin {
+    font-size: 24px;
+    line-height: normal;
+    font-weight: 400;
+    color: #9b9b9b;
+  }
+}
