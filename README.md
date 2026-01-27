@@ -52,3 +52,35 @@ This is a fresh project. Implementation will follow:
 1. The principles in `PROJECT_CONSTITUTION.md`
 2. The specifications in the `specs/` directory
 3. The tech stack documented in `specs/tech-stack.md`
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## Deployment
+
+This project is deployed to GitHub Pages automatically via GitHub Actions.
+
+**Live Site**: https://dannick-aelf.github.io/godgpt-cn-name-proposal/
+
+The deployment workflow:
+- Automatically builds and deploys on every push to `main` branch
+- Uses GitHub Actions for CI/CD
+- Deploys to GitHub Pages
+
+**To enable GitHub Pages** (if not already enabled):
+1. Go to repository Settings → Pages
+2. Under "Source", select "GitHub Actions"
+3. The workflow will automatically deploy on the next push
