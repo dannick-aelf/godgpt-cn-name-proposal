@@ -83,6 +83,7 @@ export const slides: Slide[] = [
             '"迪" is widely used in: Apps, Youth brands, Lifestyle tech',
             'Light, approachable tone',
             'Feels approachable and companion-like',
+            '"迪" (dí) sounds phonetically the same as "帝" (dì), which literally means "god" or "emperor"',
           ],
         },
       ],

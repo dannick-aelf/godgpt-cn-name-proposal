@@ -113,6 +113,7 @@ export const getSlides = (language: Language): Slide[] => {
               t['option2.linguistic.1'],
               t['option2.linguistic.2'],
               t['option2.linguistic.3'],
+              t['option2.linguistic.4'],
             ],
           },
         ],
