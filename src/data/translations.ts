@@ -35,7 +35,7 @@ export const getTranslatedSlides = (language: Language) => {
       // Option 2
       'option2.badge': 'Modern & app-forward',
       'option2.title': 'Consumer / Friendly Brand Name',
-      'option2.meaning.char1': '戈: Phonetic',
+      'option2.meaning.char1': '戈: Phonetic carrier (used in transliterations, neutral)',
       'option2.meaning.char2': '迪: Guide, progress, to lead forward',
       'option2.meaning.callout': 'Reads as a soft, modern transliteration, not a concept.',
       'option2.linguistic.1': '"迪" is widely used in: Apps, Youth brands, Lifestyle tech',
@@ -134,7 +134,7 @@ export const getTranslatedSlides = (language: Language) => {
       // Option 2
       'option2.badge': '现代与应用导向',
       'option2.title': '消费者/友好品牌名称',
-      'option2.meaning.char1': '戈: 音译',
+      'option2.meaning.char1': '戈: 音译载体（用于音译，中性）',
       'option2.meaning.char2': '迪: 引导、进步、向前引领',
       'option2.meaning.callout': '读起来像柔和、现代的音译，而非概念。',
       'option2.linguistic.1': '"迪"广泛用于：应用、青年品牌、生活方式科技',
