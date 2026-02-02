@@ -36,7 +36,7 @@ export interface SlideContent {
 export interface Slide {
   id: string;
   type: SlideType;
-  optionNumber?: 1 | 2 | 3;
+  optionNumber?: 2 | 3;
   title?: string;
   chineseCharacters?: string;
   pinyin?: string;

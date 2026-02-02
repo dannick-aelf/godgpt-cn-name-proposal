@@ -6,7 +6,7 @@ import { StatusBadge } from './StatusBadge';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 interface ComparisonCardProps {
-  optionNumber: 1 | 2 | 3;
+  optionNumber: 2 | 3;
   chineseCharacters: string;
   pinyin: string;
   positioning: string;
@@ -28,7 +28,7 @@ export const ComparisonCard: React.FC<ComparisonCardProps> = ({
   
   return (
     <motion.div
-      initial={{ opacity: 0, x: optionNumber === 1 ? -50 : optionNumber === 2 ? 0 : 50 }}
+      initial={{ opacity: 0, x: optionNumber === 2 ? -50 : 50 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.4, delay }}
       className="relative"
@@ -46,12 +46,6 @@ export const ComparisonCard: React.FC<ComparisonCardProps> = ({
             <ChineseTitle characters={chineseCharacters} pinyin={pinyin} />
           </div>
           <div className="flex items-center justify-center gap-1.5 flex-wrap">
-            {optionNumber === 1 && (
-              <>
-                <StatusBadge text={language === 'en' ? 'Best Overall' : '最佳整体'} variant="best" />
-                <StatusBadge text={language === 'en' ? 'Premium' : '高端'} variant="premium" />
-              </>
-            )}
             {optionNumber === 2 && (
               <>
                 <StatusBadge text={language === 'en' ? 'Modern' : '现代'} variant="gen-z" />

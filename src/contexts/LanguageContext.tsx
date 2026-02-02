@@ -21,7 +21,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Title Slide
     'title.subtitle': 'CN Name Proposal',
-    'title.feature1': 'Three Strategic Options',
+    'title.feature1': 'Two Strategic Options',
     'title.feature2': 'Comprehensive Analysis',
     'title.feature3': 'Market-Ready Solutions',
     
@@ -88,7 +88,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Title Slide
     'title.subtitle': '中文命名提案',
-    'title.feature1': '三个战略选项',
+    'title.feature1': '两个战略选项',
     'title.feature2': '全面分析',
     'title.feature3': '市场就绪方案',
     

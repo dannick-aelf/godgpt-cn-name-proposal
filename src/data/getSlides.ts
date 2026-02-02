@@ -57,139 +57,6 @@ export const getSlides = (language: Language): Slide[] => {
       },
     },
 
-    // Option 1: 戈德 (Gē Dé) - Overview
-    {
-      id: 'option1-overview',
-      type: 'option-overview',
-      optionNumber: 1,
-      chineseCharacters: '戈德',
-      pinyin: 'Gē Dé',
-      statusBadge: {
-        text: t['option1.badge'],
-        variant: 'best',
-      },
-      title: t['option1.title'],
-      content: {
-        sections: [],
-      },
-    },
-
-    // Option 1: Meaning
-    {
-      id: 'option1-meaning',
-      type: 'meaning',
-      optionNumber: 1,
-      title: getCommonTranslation('section.meaning'),
-      content: {
-        sections: [
-          {
-            type: 'character-breakdown',
-            items: [
-              t['option1.meaning.char1'],
-              t['option1.meaning.char2'],
-            ],
-          },
-        ],
-      },
-      callouts: [
-        {
-          type: 'emphasis',
-          content: t['option1.meaning.callout'],
-        },
-      ],
-    },
-
-    // Option 1: Linguistic & Cultural Notes
-    {
-      id: 'option1-linguistic',
-      type: 'linguistic',
-      optionNumber: 1,
-      title: getCommonTranslation('section.linguistic'),
-      content: {
-        sections: [
-          {
-            type: 'bullet-list',
-            items: [
-              t['option1.linguistic.1'],
-              t['option1.linguistic.2'],
-              t['option1.linguistic.3'],
-              t['option1.linguistic.4'],
-            ],
-          },
-        ],
-      },
-    },
-
-    // Option 1: App Store Considerations
-    {
-      id: 'option1-app-store',
-      type: 'app-store',
-      optionNumber: 1,
-      title: getCommonTranslation('section.appstore'),
-      content: {
-        sections: [
-          {
-            type: 'bullet-list',
-            items: [
-              t['option1.appstore.1'],
-              t['option1.appstore.2'],
-              t['option1.appstore.3'],
-              t['option1.appstore.4'],
-            ],
-          },
-        ],
-      },
-      callouts: [
-        {
-          type: 'warning',
-          content: t['option1.appstore.warning'],
-        },
-      ],
-    },
-
-    // Option 1: Market Positioning
-    {
-      id: 'option1-market',
-      type: 'market',
-      optionNumber: 1,
-      title: getCommonTranslation('section.market'),
-      content: {
-        sections: [
-          {
-            type: 'text',
-            items: [t['option1.market.positioning']],
-          },
-          {
-            type: 'text',
-            title: getCommonTranslation('market.worksWell'),
-            items: [
-              t['option1.market.works.1'],
-              t['option1.market.works.2'],
-              t['option1.market.works.3'],
-            ],
-          },
-          {
-            type: 'text',
-            title: getCommonTranslation('market.feelsLike'),
-            items: [
-              t['option1.market.feels.1'],
-              t['option1.market.feels.2'],
-              t['option1.market.feels.3'],
-            ],
-          },
-          {
-            type: 'text',
-            title: getCommonTranslation('market.bestUsed'),
-            items: [
-              t['option1.market.best.1'],
-              t['option1.market.best.2'],
-              t['option1.market.best.3'],
-            ],
-          },
-        ],
-      },
-    },
-
     // Option 2: 戈迪 (Gē Dí) - Overview
     {
       id: 'option2-overview',
@@ -475,7 +342,7 @@ export const getSlides = (language: Language): Slide[] => {
     {
       id: 'summary',
       type: 'summary',
-      title: language === 'en' ? 'Summary: Three Strategic Options' : '总结：三个战略选项',
+      title: language === 'en' ? 'Summary: Two Strategic Options' : '总结：两个战略选项',
       content: {
         sections: [
           {

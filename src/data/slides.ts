@@ -12,7 +12,7 @@ export const slides: Slide[] = [
     callouts: [
       {
         type: 'info',
-        content: 'Three strategic options for the Chinese market',
+        content: 'Two strategic options for the Chinese market',
       },
     ],
   },
@@ -24,139 +24,6 @@ export const slides: Slide[] = [
     title: 'Evaluation Framework',
     content: {
       sections: [],
-    },
-  },
-
-  // Option 1: 戈德 (Gē Dé) - Overview
-  {
-    id: 'option1-overview',
-    type: 'option-overview',
-    optionNumber: 1,
-    chineseCharacters: '戈德',
-    pinyin: 'Gē Dé',
-    statusBadge: {
-      text: 'Best overall, linguistically standard',
-      variant: 'best',
-    },
-    title: 'Primary / Formal Brand Name',
-    content: {
-      sections: [],
-    },
-  },
-
-  // Option 1: Meaning
-  {
-    id: 'option1-meaning',
-    type: 'meaning',
-    optionNumber: 1,
-    title: 'Meaning',
-    content: {
-      sections: [
-        {
-          type: 'character-breakdown',
-          items: [
-            '戈: Phonetic carrier (used in transliterations, neutral)',
-            '德: Virtue, integrity, moral principle',
-          ],
-        },
-      ],
-    },
-    callouts: [
-      {
-        type: 'emphasis',
-        content: 'Not read literally as "virtue" by users — perceived as a neutral transliteration of "God".',
-      },
-    ],
-  },
-
-  // Option 1: Linguistic & Cultural Notes
-  {
-    id: 'option1-linguistic',
-    type: 'linguistic',
-    optionNumber: 1,
-    title: 'Linguistic & Cultural Notes',
-    content: {
-      sections: [
-        {
-          type: 'bullet-list',
-          items: [
-            '"德" is extremely common in Chinese brand names',
-            'Carries positive but non-religious undertones',
-            'Sounds authoritative but not aggressive',
-            'Familiar structure → easy acceptance',
-          ],
-        },
-      ],
-    },
-  },
-
-  // Option 1: App Store Considerations
-  {
-    id: 'option1-app-store',
-    type: 'app-store',
-    optionNumber: 1,
-    title: 'App Store (China) Considerations',
-    content: {
-      sections: [
-        {
-          type: 'bullet-list',
-          items: [
-            'Safe for App Store review',
-            'No explicit religion / deity usage',
-            'No ideology, no politics',
-            'Suitable for AI, tools, knowledge products',
-          ],
-        },
-      ],
-    },
-    callouts: [
-      {
-        type: 'warning',
-        content: 'Slightly "serious" tone — not playful by default',
-      },
-    ],
-  },
-
-  // Option 1: Market Positioning
-  {
-    id: 'option1-market',
-    type: 'market',
-    optionNumber: 1,
-    title: 'Market Positioning in CN',
-    content: {
-      sections: [
-        {
-          type: 'text',
-          items: ['Premium / Serious / Trustworthy'],
-        },
-        {
-          type: 'text',
-          title: 'Works well for:',
-          items: [
-            'Investor-facing branding',
-            'System-level AI positioning',
-            '"AI assistant with depth"',
-          ],
-        },
-        {
-          type: 'text',
-          title: 'Feels like:',
-          items: [
-            'A platform, not a toy',
-            'Something users can rely on',
-            'A trusted advisor',
-          ],
-        },
-        {
-          type: 'text',
-          title: 'Best used when:',
-          items: [
-            'You want credibility',
-            'You want longevity',
-            'You want the most "correct" name linguistically',
-          ],
-        },
-      ],
     },
   },
 
@@ -244,7 +111,7 @@ export const slides: Slide[] = [
     callouts: [
       {
         type: 'warning',
-        content: 'Slightly less "authoritative" than 戈德',
+        content: 'Slightly less "authoritative" tone',
       },
     ],
   },
@@ -445,7 +312,7 @@ export const slides: Slide[] = [
   {
     id: 'summary',
     type: 'summary',
-    title: 'Summary: Three Strategic Options',
+    title: 'Summary: Two Strategic Options',
     content: {
       sections: [
         {

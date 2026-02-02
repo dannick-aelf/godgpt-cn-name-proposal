@@ -10,7 +10,7 @@ interface MarketPositioningSlideProps {
   worksWellFor: string[];
   feelsLike: string[];
   bestUsedWhen: string[];
-  optionNumber?: 1 | 2 | 3;
+  optionNumber?: 2 | 3;
 }
 
 export const MarketPositioningSlide: React.FC<MarketPositioningSlideProps> = ({
@@ -20,12 +20,10 @@ export const MarketPositioningSlide: React.FC<MarketPositioningSlideProps> = ({
   bestUsedWhen,
   optionNumber,
 }) => {
-  const { language, t } = useLanguage();
+  const { language } = useLanguage();
   
-  const getPositioningBadge = () => {
-    if (optionNumber === 1) {
-      return <StatusBadge text={t('summary.badge.premium')} variant="premium" />;
-    } else if (optionNumber === 2) {
+      const getPositioningBadge = () => {
+        if (optionNumber === 2) {
       return <StatusBadge text={language === 'en' ? 'Consumer' : '消费者'} variant="consumer" />;
     } else if (optionNumber === 3) {
       return <StatusBadge text={language === 'en' ? 'Concept' : '概念'} variant="concept" />;

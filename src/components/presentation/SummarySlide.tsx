@@ -24,20 +24,7 @@ export const SummarySlide: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            <ComparisonCard
-              optionNumber={1}
-              chineseCharacters="戈德"
-              pinyin="Gē Dé"
-              positioning={tSlides['summary.comparison.positioning1']}
-              bestFor={[
-                tSlides['summary.comparison.bestFor1.1'],
-                tSlides['summary.comparison.bestFor1.2'],
-                tSlides['summary.comparison.bestFor1.3'],
-              ]}
-              tone={tSlides['summary.comparison.tone1']}
-              delay={0.6}
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-3xl mx-auto">
             <ComparisonCard
               optionNumber={2}
               chineseCharacters="戈迪"
@@ -49,7 +36,7 @@ export const SummarySlide: React.FC = () => {
                 tSlides['summary.comparison.bestFor2.3'],
               ]}
               tone={tSlides['summary.comparison.tone2']}
-              delay={0.8}
+              delay={0.6}
             />
             <ComparisonCard
               optionNumber={3}
@@ -62,7 +49,7 @@ export const SummarySlide: React.FC = () => {
                 tSlides['summary.comparison.bestFor3.3'],
               ]}
               tone={tSlides['summary.comparison.tone3']}
-              delay={1.0}
+              delay={0.8}
             />
           </div>
         </motion.div>

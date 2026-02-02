@@ -121,10 +121,6 @@ export const Slide: React.FC<SlideProps> = ({ slide, isActive }) => {
               const badges: React.ReactNode[] = [];
               
               // App Store slides - add Safe badge
-              if (slide.type === 'app-store' && slide.optionNumber === 1) {
-                badges.push(<StatusBadge key="safe" text={language === 'en' ? 'Safe' : '安全'} variant="safe" />);
-                badges.push(<StatusBadge key="compliant" text={language === 'en' ? 'Compliant' : '合规'} variant="compliant" />);
-              }
               if (slide.type === 'app-store' && slide.optionNumber === 2) {
                 badges.push(<StatusBadge key="safe" text={language === 'en' ? 'Very Safe' : '非常安全'} variant="safe" />);
                 badges.push(<StatusBadge key="compliant" text={language === 'en' ? 'Compliant' : '合规'} variant="compliant" />);
@@ -134,15 +130,7 @@ export const Slide: React.FC<SlideProps> = ({ slide, isActive }) => {
                 badges.push(<StatusBadge key="compliant" text={language === 'en' ? 'Compliant' : '合规'} variant="compliant" />);
               }
               
-              // Meaning slides - add Neutral badge for option 1
-              if (slide.type === 'meaning' && slide.optionNumber === 1) {
-                badges.push(<StatusBadge key="neutral" text={language === 'en' ? 'Neutral Transliteration' : '中性音译'} variant="neutral" />);
-              }
-              
               // Linguistic slides - add Common badge
-              if (slide.type === 'linguistic' && slide.optionNumber === 1) {
-                badges.push(<StatusBadge key="common" text={language === 'en' ? 'Common in Brands' : '品牌常用'} variant="common" />);
-              }
               if (slide.type === 'linguistic' && slide.optionNumber === 2) {
                 badges.push(<StatusBadge key="common" text={language === 'en' ? 'Widely Used' : '广泛使用'} variant="common" />);
               }

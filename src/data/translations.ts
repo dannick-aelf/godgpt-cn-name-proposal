@@ -4,7 +4,7 @@ export const getTranslatedSlides = (language: Language) => {
   const translations = {
     en: {
       // Title Slide
-      'title.callout': 'Three strategic options for the Chinese market',
+      'title.callout': 'Two strategic options for the Chinese market',
       
       // Option 1
       'option1.badge': 'Best overall, linguistically standard',
@@ -45,7 +45,7 @@ export const getTranslatedSlides = (language: Language) => {
       'option2.appstore.2': 'No religious meaning',
       'option2.appstore.3': 'Strong fit for AI assistants / chat apps',
       'option2.appstore.4': 'Friendly to younger users',
-      'option2.appstore.warning': 'Slightly less "authoritative" than 戈德',
+      'option2.appstore.warning': 'Slightly less "authoritative" tone',
       'option2.market.positioning': 'Modern / Consumer / App-native',
       'option2.market.works.1': 'Daily-use AI companion',
       'option2.market.works.2': 'Conversational AI',
@@ -103,7 +103,7 @@ export const getTranslatedSlides = (language: Language) => {
     },
     'zh-CN': {
       // Title Slide
-      'title.callout': '面向中国市场的三个战略选项',
+      'title.callout': '面向中国市场的两个战略选项',
       
       // Option 1
       'option1.badge': '最佳整体，语言标准',
@@ -144,7 +144,7 @@ export const getTranslatedSlides = (language: Language) => {
       'option2.appstore.2': '无宗教含义',
       'option2.appstore.3': '非常适合AI助手/聊天应用',
       'option2.appstore.4': '对年轻用户友好',
-      'option2.appstore.warning': '比戈德略微缺乏"权威性"',
+      'option2.appstore.warning': '略微缺乏"权威性"的语调',
       'option2.market.positioning': '现代/消费者/应用原生',
       'option2.market.works.1': '日常使用的AI伙伴',
       'option2.market.works.2': '对话式AI',

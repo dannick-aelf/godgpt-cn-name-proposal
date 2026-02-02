@@ -37,7 +37,7 @@ export const RecommendationIntroSlide: React.FC = () => {
               {t('recommendation.title')}
             </h1>
             <p className="text-h2 text-[#9b9b9b] max-w-2xl mx-auto leading-relaxed">
-              {language === 'en' ? 'Based on comprehensive evaluation of all three options' : '基于对所有三个选项的全面评估'}
+              {language === 'en' ? 'Based on comprehensive evaluation of both options' : '基于对两个选项的全面评估'}
             </p>
           </motion.div>
 
