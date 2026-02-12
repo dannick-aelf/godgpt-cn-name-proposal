@@ -7,13 +7,41 @@ import { Callout } from '../content/Callout';
 import { BulletListCard } from '../content/BulletListCard';
 import { TextCard } from '../content/TextCard';
 import { CharacterBreakdownCard } from '../content/CharacterBreakdownCard';
-import { Translate, ListBullets, Storefront, TrendUp } from 'phosphor-react';
+import { ChartCard } from '../content/ChartCard';
+import { 
+  Translate, 
+  ListBullets, 
+  Storefront, 
+  TrendUp,
+  ShieldWarning,
+  Database,
+  CurrencyDollar,
+  Users,
+  ChartBar,
+  ChartLine,
+  Target,
+  WarningCircle,
+  FileText,
+  Buildings,
+  Code
+} from 'phosphor-react';
 import { SummarySlide } from './SummarySlide';
 import { TitleSlide } from './TitleSlide';
 import { ThankYouSlide } from './ThankYouSlide';
 import { RecommendationIntroSlide } from './RecommendationIntroSlide';
 import { MarketPositioningSlide } from './MarketPositioningSlide';
 import { EvaluationFrameworkSlide } from './EvaluationFrameworkSlide';
+import { ExecutiveSummarySlide } from './ExecutiveSummarySlide';
+import { CoreQuestionSlide } from './CoreQuestionSlide';
+import { StrategicFitSlide } from './StrategicFitSlide';
+import { RegulatoryRiskSlide } from './RegulatoryRiskSlide';
+import { FinancialModelSlide } from './FinancialModelSlide';
+import { CompetitiveLandscapeSlide } from './CompetitiveLandscapeSlide';
+import { DecisionMatrixSlide } from './DecisionMatrixSlide';
+import { FinalDecisionFilterSlide } from './FinalDecisionFilterSlide';
+import { RecommendationSlide } from './RecommendationSlide';
+import { StrategicStanceSlide } from './StrategicStanceSlide';
+import { NextStepsSlide } from './NextStepsSlide';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 interface SlideProps {
@@ -29,6 +57,86 @@ export const Slide: React.FC<SlideProps> = ({ slide, isActive }) => {
   // Check specific slide IDs first (before type checks)
   if (slide.id === 'thank-you') {
     return <ThankYouSlide />;
+  }
+
+  if (slide.id === 'executive-summary') {
+    return <ExecutiveSummarySlide />;
+  }
+
+  if (slide.id === 'core-question') {
+    return <CoreQuestionSlide />;
+  }
+
+  if (slide.id === 'strategic-fit') {
+    return <StrategicFitSlide />;
+  }
+
+  // Regulatory Risk Slides
+  if (slide.id === 'regulatory-content' || slide.id === 'regulatory-data' || slide.id === 'regulatory-operational') {
+    const risks = slide.callouts?.map(callout => ({
+      icon: callout.icon || WarningCircle,
+      content: callout.content || '',
+      severity: (callout.type === 'warning' ? 'high' : 'info') as 'high' | 'medium' | 'critical',
+    })) || [];
+    
+    return (
+      <RegulatoryRiskSlide
+        slideId={slide.id}
+        title={slide.title || ''}
+        risks={risks}
+      />
+    );
+  }
+
+  // Financial Model Slides
+  if (slide.id === 'financial-entry' || slide.id === 'financial-engineering' || slide.id === 'financial-revenue') {
+    const chartSection = slide.content.sections.find(s => s.type === 'chart');
+    const chartData = chartSection?.chartData || [];
+    const chartType = slide.id === 'financial-entry' 
+      ? 'entry-cost' 
+      : slide.id === 'financial-engineering' 
+      ? 'engineering' 
+      : 'revenue';
+    
+    const calloutsData = slide.callouts?.map(callout => ({
+      type: callout.type as 'warning' | 'info',
+      icon: callout.icon || CurrencyDollar,
+      content: callout.content || '',
+    })) || [];
+    
+    return (
+      <FinancialModelSlide
+        slideId={slide.id}
+        title={slide.title || ''}
+        chartType={chartType}
+        chartData={chartData}
+        callouts={calloutsData}
+      />
+    );
+  }
+
+  if (slide.id === 'competitive') {
+    return <CompetitiveLandscapeSlide />;
+  }
+
+  if (slide.id === 'decision-matrix') {
+    return <DecisionMatrixSlide />;
+  }
+
+  if (slide.id === 'final-decision') {
+    return <FinalDecisionFilterSlide />;
+  }
+
+  if (slide.id === 'recommendation') {
+    return <RecommendationSlide />;
+  }
+
+  if (slide.id === 'strategic-stance') {
+    return <StrategicStanceSlide />;
+  }
+
+  if (slide.id === 'next-steps') {
+    return <NextStepsSlide />;
   }
 
   if (slide.id === 'recommendation-intro') {
@@ -104,15 +212,45 @@ export const Slide: React.FC<SlideProps> = ({ slide, isActive }) => {
           </div>
         )}
 
+        {/* Title for regular title slides without Chinese characters */}
+        {slide.type === 'title' && !slide.chineseCharacters && slide.title && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            className="text-center"
+          >
+            <h1 className="text-h1 md:text-display text-[32px] md:text-[40px] font-semibold text-[#ececec] tracking-tight">
+              {slide.title}
+            </h1>
+          </motion.div>
+        )}
+
         {/* Content Sections */}
         <div className="space-y-6 flex flex-col items-center">
           {slide.content.sections.map((section, index) => {
             const getIcon = () => {
+              // Use icon from section if provided
+              if (section.icon) return section.icon;
+              
+              // Fallback to title-based icon detection
               if (section.title) {
-                if (section.title.includes('Meaning')) return <Translate size={28} weight="bold" className="text-[#5755EE]" />;
-                if (section.title.includes('Linguistic')) return <ListBullets size={28} weight="bold" className="text-[#5755EE]" />;
-                if (section.title.includes('App Store')) return <Storefront size={28} weight="bold" className="text-[#5755EE]" />;
-                if (section.title.includes('Market')) return <TrendUp size={28} weight="bold" className="text-[#5755EE]" />;
+                const title = section.title.toLowerCase();
+                if (title.includes('meaning')) return <Translate size={20} weight="regular" className="text-[#5755EE]" />;
+                if (title.includes('linguistic')) return <ListBullets size={20} weight="regular" className="text-[#5755EE]" />;
+                if (title.includes('app store')) return <Storefront size={20} weight="regular" className="text-[#5755EE]" />;
+                if (title.includes('market')) return <TrendUp size={20} weight="regular" className="text-[#5755EE]" />;
+                if (title.includes('strategic fit')) return <Target size={20} weight="regular" className="text-[#5755EE]" />;
+                if (title.includes('regulatory')) return <ShieldWarning size={20} weight="regular" className="text-[#5755EE]" />;
+                if (title.includes('content risk')) return <WarningCircle size={20} weight="regular" className="text-[#5755EE]" />;
+                if (title.includes('data architecture')) return <Database size={20} weight="regular" className="text-[#5755EE]" />;
+                if (title.includes('operational control')) return <Buildings size={20} weight="regular" className="text-[#5755EE]" />;
+                if (title.includes('financial')) return <CurrencyDollar size={20} weight="regular" className="text-[#5755EE]" />;
+                if (title.includes('engineering')) return <Code size={20} weight="regular" className="text-[#5755EE]" />;
+                if (title.includes('revenue')) return <ChartBar size={20} weight="regular" className="text-[#5755EE]" />;
+                if (title.includes('competitive')) return <Users size={20} weight="regular" className="text-[#5755EE]" />;
+                if (title.includes('decision')) return <ChartLine size={20} weight="regular" className="text-[#5755EE]" />;
+                if (title.includes('executive')) return <FileText size={20} weight="regular" className="text-[#5755EE]" />;
               }
               return null;
             };
@@ -146,12 +284,12 @@ export const Slide: React.FC<SlideProps> = ({ slide, isActive }) => {
               <div key={index} className="w-full max-w-2xl">
                 {section.title && (
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.3 + index * 0.2 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.1 + index * 0.1 }}
                     className="mb-6 text-center"
                   >
-                    <h2 className="text-h1 flex items-center justify-center gap-3">
+                    <h2 className="text-h2 md:text-h3 text-[#9b9b9b] font-normal flex items-center justify-center gap-2">
                       {getIcon()}
                       <span>{section.title}</span>
                     </h2>
@@ -159,24 +297,42 @@ export const Slide: React.FC<SlideProps> = ({ slide, isActive }) => {
                   </motion.div>
                 )}
                 {section.type === 'bullet-list' && section.items && (
-                  <BulletListCard
-                    items={section.items}
-                    title={section.title}
-                    icon={getIcon()}
-                    className="w-full"
-                  />
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.1 + index * 0.1 }}
+                  >
+                    <BulletListCard
+                      items={section.items}
+                      title={section.title}
+                      icon={getIcon()}
+                      className="w-full"
+                    />
+                  </motion.div>
                 )}
                 {section.type === 'text' && section.items && (
-                  <TextCard
-                    items={section.items}
-                    title={section.title}
-                    icon={getIcon()}
-                    className="w-full"
-                  />
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.1 + index * 0.1 }}
+                  >
+                    <TextCard
+                      items={section.items}
+                      title={section.title}
+                      icon={getIcon()}
+                      className="w-full"
+                    />
+                  </motion.div>
                 )}
                 {section.type === 'character-breakdown' && section.items && (
                   <CharacterBreakdownCard
                     items={section.items}
+                    className="w-full"
+                  />
+                )}
+                {section.type === 'chart' && (
+                  <ChartCard
+                    section={section}
                     className="w-full"
                   />
                 )}
@@ -194,6 +350,7 @@ export const Slide: React.FC<SlideProps> = ({ slide, isActive }) => {
                   type={callout.type}
                   content={callout.content}
                   title={callout.title}
+                  icon={callout.icon}
                 />
               </div>
             ))}

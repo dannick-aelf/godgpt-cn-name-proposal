@@ -5,7 +5,8 @@ export type SlideType =
   | 'linguistic' 
   | 'app-store' 
   | 'market' 
-  | 'summary';
+  | 'summary'
+  | 'chart';
 
 export type StatusBadgeVariant = 'best' | 'gen-z' | 'philosophy' | 'safe' | 'compliant' | 'premium' | 'consumer' | 'concept' | 'neutral' | 'common';
 
@@ -20,13 +21,25 @@ export interface Callout {
   type: CalloutType;
   content: string;
   title?: string;
+  icon?: React.ReactNode;
+}
+
+export interface ChartData {
+  name: string;
+  value?: number;
+  color?: string;
+  enter?: number;
+  exclude?: number;
 }
 
 export interface ContentSection {
   title?: string;
-  type: 'text' | 'bullet-list' | 'character-breakdown' | 'comparison';
+  type: 'text' | 'bullet-list' | 'character-breakdown' | 'comparison' | 'chart';
   items?: string[];
   highlight?: boolean;
+  chartType?: 'bar' | 'pie' | 'horizontal-bar' | 'comparison';
+  chartData?: ChartData[];
+  icon?: React.ReactNode;
 }
 
 export interface SlideContent {

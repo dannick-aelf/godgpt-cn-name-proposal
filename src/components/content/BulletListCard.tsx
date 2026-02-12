@@ -1,7 +1,7 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { CheckCircle } from 'phosphor-react';
+import { Circle } from 'phosphor-react';
 import { Card } from '../ui/Card';
+import { highlightWarningWords } from '../../utils/highlightText';
 
 interface BulletListCardProps {
   items: string[];
@@ -17,36 +17,28 @@ export const BulletListCard: React.FC<BulletListCardProps> = ({
   className = '',
 }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-      className={className}
-    >
+    <div className={className}>
       <Card>
         <div className="space-y-4">
-          {title && (
+          {(title || icon) && (
             <div className="flex items-center justify-center gap-2 text-h2 font-medium">
               {icon}
-              <span>{title}</span>
+              {title && <span>{title}</span>}
             </div>
           )}
           <ul className="space-y-3">
             {items.map((item, index) => (
-              <motion.li
+              <li
                 key={index}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
                 className="flex items-start gap-3 text-body leading-relaxed"
               >
-                <CheckCircle size={20} weight="fill" className="text-[#5755EE] flex-shrink-0 mt-0.5" />
-                <span className="text-center flex-1">{item}</span>
-              </motion.li>
+                <Circle size={6} weight="fill" className="text-[#9b9b9b] flex-shrink-0 mt-2" />
+                <span className="text-center flex-1">{highlightWarningWords(item)}</span>
+              </li>
             ))}
           </ul>
         </div>
       </Card>
-    </motion.div>
+    </div>
   );
 };

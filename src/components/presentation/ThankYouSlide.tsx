@@ -1,80 +1,103 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Heart } from 'phosphor-react';
-import { Callout } from '../content/Callout';
-import { ChineseTitle } from '../content/ChineseTitle';
-import { StatusBadge } from '../content/StatusBadge';
+import { CheckCircle, ArrowRight, Target, ChartLine, Handshake } from 'phosphor-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 export const ThankYouSlide: React.FC = () => {
-  const { t } = useLanguage();
+  const { language } = useLanguage();
+  const isEnglish = language === 'en';
+  
+  const nextSteps = [
+    {
+      icon: Target,
+      text: isEnglish ? 'Validate assumptions with product, engineering, and finance' : '与产品、工程和财务部门验证假设',
+    },
+    {
+      icon: ChartLine,
+      text: isEnglish ? 'Focus resources on profit-making apps' : '将资源专注于盈利应用',
+    },
+    {
+      icon: Handshake,
+      text: isEnglish ? 'Revisit China when conditions are favorable' : '当条件有利时重新考虑中国',
+    },
+  ];
+  
   return (
-    <div className="min-h-screen w-full flex items-center justify-center px-6 md:px-8 lg:px-12 py-20 pb-32">
-      <div className="max-w-[992px] w-full mx-auto">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
-          className="text-center space-y-12"
-        >
-          {/* Thank You Message */}
+    <div className="h-screen w-full overflow-y-auto flex items-center justify-center px-6 md:px-8 lg:px-12 py-20">
+      <div className="max-w-[1200px] w-full mx-auto">
+        <div className="text-center space-y-12">
+          {/* Main Thank You Section */}
           <div className="space-y-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex justify-center"
-            >
-              <Heart size={64} weight="fill" className="text-[#5755EE]" />
-            </motion.div>
+            <div className="flex justify-center">
+              <div className="relative">
+                <div className="absolute inset-0 bg-[#5755EE] opacity-20 blur-3xl rounded-full" />
+                <div className="relative p-6 rounded-full bg-gradient-to-br from-[rgba(87,85,238,0.2)] to-[rgba(87,85,238,0.1)] border border-[rgba(87,85,238,0.3)]">
+                  <CheckCircle size={64} weight="regular" className="text-[#5755EE]" />
+                </div>
+              </div>
+            </div>
             
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-display md:text-[56px] lg:text-[64px]"
-            >
-              {t('thankyou.title')}
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="text-h2 text-[#9b9b9b] max-w-2xl mx-auto leading-relaxed"
-            >
-              {t('thankyou.message')}
-            </motion.p>
+            <div className="space-y-3">
+              <h1 className="text-display md:text-[48px] lg:text-[64px] font-semibold text-[#ececec] tracking-tight">
+                {isEnglish ? 'Thank You' : '谢谢'}
+              </h1>
+              <p className="text-h2 text-[#9b9b9b] max-w-2xl mx-auto leading-relaxed">
+                {isEnglish 
+                  ? 'Strategic decision brief prepared for board review'
+                  : '为董事会审查准备的战略决策简报'
+                }
+              </p>
+            </div>
           </div>
 
-          {/* Recommended Choice */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-            className="flex flex-col items-center gap-6 pt-8"
-          >
-            <Callout
-              type="success"
-              title={t('summary.recommended')}
-              className="max-w-2xl w-full py-4"
-            >
-              <div className="flex flex-col items-center gap-2 text-center">
-                <div className="scale-75 origin-center">
-                  <ChineseTitle characters="戈迪" pinyin="Gē Dí" />
-                </div>
-                <div className="flex items-center justify-center gap-1.5 flex-wrap">
-                  <StatusBadge text={t('summary.badge.best')} variant="best" />
-                  <StatusBadge text={t('summary.badge.genZ')} variant="gen-z" />
-                  <StatusBadge text={t('summary.badge.consumer')} variant="consumer" />
-                </div>
-                <p className="text-small text-[#ececec] leading-relaxed mt-1">
-                  {t('summary.recommended.desc')}
-                </p>
-              </div>
-            </Callout>
-          </motion.div>
-        </motion.div>
+          {/* Path Forward */}
+          <div className="space-y-6 pt-8">
+            <div className="flex items-center justify-center gap-3">
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#454545] to-[#454545]" />
+              <ArrowRight size={20} weight="regular" className="text-[#5755EE]" />
+              <span className="text-h3 font-medium text-[#9b9b9b]">
+                {isEnglish ? 'Path Forward' : '前进道路'}
+              </span>
+              <ArrowRight size={20} weight="regular" className="text-[#5755EE]" />
+              <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#454545] to-[#454545]" />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {nextSteps.map((step, index) => {
+                const IconComponent = step.icon;
+                return (
+                  <div 
+                    key={index}
+                    className="group relative p-6 rounded-lg bg-[rgba(87,85,238,0.05)] border border-[rgba(87,85,238,0.2)] hover:bg-[rgba(87,85,238,0.1)] transition-all duration-300"
+                  >
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="p-3 rounded-lg bg-[rgba(87,85,238,0.15)] group-hover:bg-[rgba(87,85,238,0.25)] transition-colors">
+                        <IconComponent size={28} weight="regular" className="text-[#5755EE]" />
+                      </div>
+                      <p className="text-body text-[#ececec] leading-relaxed">
+                        {step.text}
+                      </p>
+                    </div>
+                    {index < nextSteps.length - 1 && (
+                      <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2">
+                        <ArrowRight size={20} weight="regular" className="text-[#5755EE] opacity-50" />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Disclaimer */}
+          <div className="pt-8 border-t border-[#454545]">
+            <p className="text-sm text-[#9b9b9b] max-w-2xl mx-auto leading-relaxed">
+              {isEnglish 
+                ? 'Assumptions and cost estimates should be validated with product, engineering, and finance teams before finalizing the decision.'
+                : '在最终确定决策之前，假设和成本估算应与产品、工程和财务团队验证。'
+              }
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

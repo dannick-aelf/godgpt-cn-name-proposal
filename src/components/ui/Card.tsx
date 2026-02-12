@@ -11,10 +11,10 @@ export const Card: React.FC<CardProps> = ({
   highlighted = false,
   className = '',
 }) => {
-  const baseClasses = 'rounded-lg p-6 border';
+  const baseClasses = 'rounded border p-6';
   const highlightedClasses = highlighted
-    ? 'bg-[rgba(87,85,238,0.08)] border-[#5755EE]'
-    : 'bg-transparent border-[#454545]';
+    ? 'bg-[rgba(87,85,238,0.05)] border-[#5755EE] border-opacity-30'
+    : 'bg-transparent border-[#454545] border-opacity-50';
 
   return (
     <div className={`${baseClasses} ${highlightedClasses} ${className}`}>

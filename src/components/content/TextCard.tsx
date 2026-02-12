@@ -1,6 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Card } from '../ui/Card';
+import { highlightWarningWords } from '../../utils/highlightText';
 
 interface TextCardProps {
   items: string[];
@@ -16,35 +16,27 @@ export const TextCard: React.FC<TextCardProps> = ({
   className = '',
 }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-      className={className}
-    >
+    <div className={className}>
       <Card>
         <div className="space-y-4 text-center">
-          {title && (
+          {(title || icon) && (
             <div className="flex items-center justify-center gap-2 text-h2 font-medium">
               {icon}
-              <span>{title}</span>
+              {title && <span>{title}</span>}
             </div>
           )}
           <div className="space-y-3">
             {items.map((item, index) => (
-              <motion.p
+              <p
                 key={index}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
                 className="text-body leading-relaxed"
               >
-                {item}
-              </motion.p>
+                {highlightWarningWords(item)}
+              </p>
             ))}
           </div>
         </div>
       </Card>
-    </motion.div>
+    </div>
   );
 };
